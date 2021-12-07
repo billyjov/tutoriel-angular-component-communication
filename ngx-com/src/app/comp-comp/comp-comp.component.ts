@@ -17,10 +17,14 @@ export class CompCompComponent implements OnInit {
     key: 'key'
   };
 
+  public isDisabled: boolean = false;
+  public color: string = 'green';
   constructor() { }
 
   ngOnInit(): void {
     this.title.value = 'TEST NEW'
+    this.isDisabled = true;
+
   }
 
 }
