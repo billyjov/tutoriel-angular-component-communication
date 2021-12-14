@@ -19,6 +19,18 @@ export class CompCompComponent implements OnInit {
 
   public isDisabled: boolean = false;
   public color: string = 'green';
+  public items = [
+
+    {
+      id: 0,
+      name: 'Test 1',
+      key: 'mykey'
+    }, {
+      id: 1,
+      name: 'Test 2',
+      key: null
+    },
+  ];
   constructor() { }
 
   ngOnInit(): void {
