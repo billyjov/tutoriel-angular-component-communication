@@ -12,7 +12,8 @@ interface Title {
 })
 export class CompCompComponent implements OnInit {
 
-  public filter: string = 'maison';
+  // public filter: string = 'maison';
+
   public readonly title: Title = {
     value: 'test',
     key: 'key'
@@ -32,6 +33,9 @@ export class CompCompComponent implements OnInit {
       key: null
     },
   ];
+
+
+  private _filter: string = 'maison';
   constructor() { }
 
   ngOnInit(): void {
@@ -52,6 +56,16 @@ export class CompCompComponent implements OnInit {
 
     // console.warn('la valeur modifie:: ', this.filter);
 
+  }
+
+  public get filter(): string {
+    return this._filter;
+  }
+
+  public set filter(value: string) {
+    this._filter = value;
+
+    console.log('input:: ', this._filter);
   }
 
 }
