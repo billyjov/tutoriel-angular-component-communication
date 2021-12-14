@@ -12,6 +12,7 @@ interface Title {
 })
 export class CompCompComponent implements OnInit {
 
+  public filter: string = 'maison';
   public readonly title: Title = {
     value: 'test',
     key: 'key'
@@ -37,10 +38,20 @@ export class CompCompComponent implements OnInit {
     this.title.value = 'TEST NEW'
     this.isDisabled = true;
 
+    console.log('premiere valeur: ', this.filter);
   }
 
   public receiveMessage(message: Partial<PointerEvent>): void {
     console.log(message.altKey);
+  }
+
+  public receiveChange(message: string): void {
+    console.log('input:: ', message);
+
+    // this.filter = 'Mon message: ' + message;
+
+    // console.warn('la valeur modifie:: ', this.filter);
+
   }
 
 }
