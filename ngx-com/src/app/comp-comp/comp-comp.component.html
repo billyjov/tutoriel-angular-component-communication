@@ -4,6 +4,10 @@
  [class.test]="isDisabled" [style.color]="color">button</button>
 
 
-  <p *ngFor="let item of items">
+  <div *ngFor="let item of items">
     {{ item?.key }}
-  </p>
+
+    <button class="btn btn-secondary" (click)="receiveMessage($event)">
+      envoyer
+    </button>
+  </div>

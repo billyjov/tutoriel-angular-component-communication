@@ -39,4 +39,8 @@ export class CompCompComponent implements OnInit {
 
   }
 
+  public receiveMessage(message: Partial<PointerEvent>): void {
+    console.log(message.altKey);
+  }
+
 }
