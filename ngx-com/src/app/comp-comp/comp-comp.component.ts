@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 interface Title {
   value: string;
@@ -13,6 +13,7 @@ interface Title {
 export class CompCompComponent implements OnInit {
 
   // public filter: string = 'maison';
+  @ViewChild('elem', { static: true }) element: ElementRef = <ElementRef>{};
 
   public readonly title: Title = {
     value: 'test',
@@ -42,7 +43,14 @@ export class CompCompComponent implements OnInit {
     this.title.value = 'TEST NEW'
     this.isDisabled = true;
 
-    console.log('premiere valeur: ', this.filter);
+    const elem = document.getElementById('message');
+
+    // elem!.innerHTML = 'hello';
+    // console.log(elem);
+
+    this.element.nativeElement.innerHTML = 'hello world';
+    console.log(this.element);
+
   }
 
   public receiveMessage(message: Partial<PointerEvent>): void {
