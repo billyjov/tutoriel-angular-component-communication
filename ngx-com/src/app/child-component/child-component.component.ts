@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildComponentComponent implements OnInit {
 
+  public amount: number = 2000;
   constructor() { }
 
   ngOnInit(): void {
