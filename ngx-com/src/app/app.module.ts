@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CompCompComponent } from './comp-comp/comp-comp.component';
+import { ChildComponentComponent } from './child-component/child-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CompCompComponent
+    CompCompComponent,
+    ChildComponentComponent
   ],
   imports: [
     BrowserModule,

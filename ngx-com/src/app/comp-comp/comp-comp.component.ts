@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 interface Title {
   value: string;
@@ -14,6 +15,7 @@ export class CompCompComponent implements OnInit {
 
   // public filter: string = 'maison';
   @ViewChild('elem', { static: true }) element: ElementRef = <ElementRef>{};
+  @ViewChild(NgModel, { static: true }) myInput!: NgModel;
 
   public readonly title: Title = {
     value: 'test',
@@ -49,7 +51,8 @@ export class CompCompComponent implements OnInit {
     // console.log(elem);
 
     this.element.nativeElement.innerHTML = 'hello world';
-    console.log(this.element);
+    this.myInput.control.valueChanges.subscribe(console.log)
+    console.log(this.myInput);
 
   }
 
