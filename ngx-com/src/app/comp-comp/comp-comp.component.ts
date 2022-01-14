@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { ChildComponentComponent } from '../child-component/child-component.component';
 
@@ -12,7 +12,7 @@ interface Title {
   templateUrl: './comp-comp.component.html',
   styleUrls: ['./comp-comp.component.css']
 })
-export class CompCompComponent implements OnInit {
+export class CompCompComponent implements OnInit, AfterViewInit {
 
   // public filter: string = 'maison';
   @ViewChild('elem', { static: true }) element: ElementRef = <ElementRef>{};
@@ -20,6 +20,8 @@ export class CompCompComponent implements OnInit {
 
   @ViewChild(ChildComponentComponent, { static: true })
   childComponent!: ChildComponentComponent;
+
+  @ViewChildren(ChildComponentComponent, ) childrens!: QueryList<ChildComponentComponent>;
 
   public readonly title: Title = {
     value: 'test',
@@ -56,7 +58,13 @@ export class CompCompComponent implements OnInit {
 
     this.element.nativeElement.innerHTML = 'hello world';
     this.myInput.control.valueChanges.subscribe(console.log)
-    console.log(this.childComponent.amount);
+
+  }
+
+  ngAfterViewInit(): void {
+    const childrenArray = this.childrens.toArray();
+
+    console.log(childrenArray[2].amount);
 
   }
 
