@@ -16,7 +16,7 @@ export class CompCompComponent implements OnInit, AfterViewInit {
 
   // public filter: string = 'maison';
   @ViewChild('elem', { static: true }) element: ElementRef = <ElementRef>{};
-  @ViewChild(NgModel, { static: true }) myInput!: NgModel;
+  // @ViewChild(NgModel, { static: true }) myInput!: NgModel;
 
   @ViewChild(ChildComponentComponent, { static: true })
   childComponent!: ChildComponentComponent;
@@ -50,6 +50,7 @@ export class CompCompComponent implements OnInit, AfterViewInit {
 
 
   private _filter: string = 'maison';
+  private _myInput!: NgModel;
   constructor() { }
 
   ngOnInit(): void {
@@ -62,7 +63,6 @@ export class CompCompComponent implements OnInit, AfterViewInit {
     // console.log(elem);
 
     this.element.nativeElement.innerHTML = 'hello world';
-    this.myInput.control.valueChanges.subscribe(console.log)
 
   }
 
@@ -71,12 +71,22 @@ export class CompCompComponent implements OnInit, AfterViewInit {
     console.log(this.childrenRefs);
   }
 
+  @ViewChild(NgModel, { static: false })
+  public set myInput(value: NgModel) {
+    this._myInput = value;
+    this.myInput.control.valueChanges.subscribe(console.log)
+  }
+
+  public get myInput(): NgModel {
+    return this._myInput;
+  }
+
   public receiveMessage(message: Partial<PointerEvent>): void {
     console.log(message.altKey);
   }
 
   public receiveChange(message: string): void {
-    console.log('input:: ', message);
+    // console.log('input:: ', message);
 
     // this.filter = 'Mon message: ' + message;
 
@@ -91,7 +101,7 @@ export class CompCompComponent implements OnInit, AfterViewInit {
   public set filter(value: string) {
     this._filter = value;
 
-    console.log('input:: ', this._filter);
+    // console.log('input:: ', this._filter);
   }
 
 }
