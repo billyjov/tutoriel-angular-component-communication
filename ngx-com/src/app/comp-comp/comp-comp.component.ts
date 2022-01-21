@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { ChildComponentComponent } from '../child-component/child-component.component';
 
@@ -21,7 +21,12 @@ export class CompCompComponent implements OnInit, AfterViewInit {
   @ViewChild(ChildComponentComponent, { static: true })
   childComponent!: ChildComponentComponent;
 
-  @ViewChildren(ChildComponentComponent, ) childrens!: QueryList<ChildComponentComponent>;
+  @ViewChildren(ChildComponentComponent) childrens!: QueryList<ChildComponentComponent>;
+
+  @ViewChildren('childComponentRef, childComponentRef2', {
+    read: ElementRef
+  })
+  childrenRefs!: QueryList<ElementRef>;
 
   public readonly title: Title = {
     value: 'test',
@@ -63,9 +68,7 @@ export class CompCompComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     const childrenArray = this.childrens.toArray();
-
-    console.log(childrenArray[2].amount);
-
+    console.log(this.childrenRefs);
   }
 
   public receiveMessage(message: Partial<PointerEvent>): void {
