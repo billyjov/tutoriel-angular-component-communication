@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ParentAmountComponent implements OnInit {
 
   public amountTotal: number = 100;
+  public isIncreased: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -15,6 +16,7 @@ export class ParentAmountComponent implements OnInit {
 
   public deposit(): void {
     this.amountTotal += 100;
+    this.isIncreased = true;
   }
 
 }
