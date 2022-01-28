@@ -13,4 +13,8 @@ export class ParentAmountComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public deposit(): void {
+    this.amountTotal += 100;
+  }
+
 }

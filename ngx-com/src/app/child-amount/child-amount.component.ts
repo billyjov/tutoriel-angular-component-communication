@@ -7,11 +7,25 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ChildAmountComponent implements OnInit {
 
-  @Input()
-  public amount: number = 0;
+  private _amount: number = 0;
   constructor() { }
 
   ngOnInit(): void {
+    console.log('montant: ', this.amount);
+  }
+
+  get amount(): number {
+    return this._amount;
+  }
+
+  @Input()
+  set amount(value: number) {
+    this._amount = value;
+    this.sendNotification();
+  }
+
+  public sendNotification(): void {
+    console.log('nouveau montant: ', this.amount);
   }
 
 }
