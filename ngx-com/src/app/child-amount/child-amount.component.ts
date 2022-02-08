@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, SimpleChanges, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child-amount',
@@ -9,6 +9,9 @@ export class ChildAmountComponent implements OnInit, OnChanges {
 
   @Input()
   public amount: number = 0;
+  @Output()
+  public amountChange: EventEmitter<number> = new EventEmitter<number>();
+
   @Input()
   public isIncreased: boolean = false;
 
@@ -23,6 +26,11 @@ export class ChildAmountComponent implements OnInit, OnChanges {
     if (changes['amount'] && changes['amount'].currentValue) {
       this.sendNotification();
     }
+  }
+
+  public withdraw(): void {
+    this.amount -= 100;
+    this.amountChange.emit(this.amount);
   }
 
   // get amount(): number {
