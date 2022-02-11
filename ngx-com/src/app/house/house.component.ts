@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../account/account.service';
 
 @Component({
   selector: 'app-house',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HouseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
+  }
+
+  public get amount(): number {
+    return this.accountService.amount;
+  }
+
+  public set amount(value: number) {
+    this.accountService.amount = value;
   }
 
 }
