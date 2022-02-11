@@ -1,7 +1,10 @@
-<div class="alert alert-primary">
-  Montant disponible <strong> {{ amount }} FCFA/Euro</strong>
-</div>
+<div class="child-container" [style.border-color]="favoriteColor">
+  <h1>{{ childName }}</h1>
+  <div class="alert alert-primary">
+    Montant disponible <strong> {{ amount }} FCFA/Euro</strong>
+  </div>
 
-<button class="btn btn-danger mt-5" (click)="withdraw()">
-  Withdraw
-</button>
+  <button class="btn btn-danger mt-5" (click)="withdraw()">
+    Withdraw
+  </button>
+</div>

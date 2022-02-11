@@ -7,6 +7,7 @@ import { CompCompComponent } from './comp-comp/comp-comp.component';
 import { ChildComponentComponent } from './child-component/child-component.component';
 import { ParentAmountComponent } from './parent-amount/parent-amount.component';
 import { ChildAmountComponent } from './child-amount/child-amount.component';
+import { HouseComponent } from './house/house.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ChildAmountComponent } from './child-amount/child-amount.component';
     CompCompComponent,
     ChildComponentComponent,
     ParentAmountComponent,
-    ChildAmountComponent
+    ChildAmountComponent,
+    HouseComponent
   ],
   imports: [
     BrowserModule,

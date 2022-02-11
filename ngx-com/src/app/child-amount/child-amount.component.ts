@@ -15,6 +15,12 @@ export class ChildAmountComponent implements OnInit, OnChanges {
   @Input()
   public isIncreased: boolean = false;
 
+  @Input()
+  public childName!: string;
+
+  @Input()
+  public favoriteColor!: string;
+
   constructor() { }
 
   ngOnInit(): void {
