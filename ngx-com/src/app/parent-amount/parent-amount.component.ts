@@ -30,4 +30,9 @@ export class ParentAmountComponent implements OnInit {
     this.accountService.amount = value;
   }
 
+  public get checkPerformance() {
+    console.warn('check perf parent');
+    return true;
+  }
+
 }

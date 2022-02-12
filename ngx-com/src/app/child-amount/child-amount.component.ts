@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, OnChanges, SimpleChanges, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, SimpleChanges, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-child-amount',
   templateUrl: './child-amount.component.html',
-  styleUrls: ['./child-amount.component.css']
+  styleUrls: ['./child-amount.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildAmountComponent implements OnInit, OnChanges {
 
@@ -24,11 +25,11 @@ export class ChildAmountComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('montant: ', this.amount);
+    // console.log('montant: ', this.amount);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+    // console.log(changes);
     if (changes['amount'] && changes['amount'].currentValue) {
       this.sendNotification();
     }
@@ -50,7 +51,12 @@ export class ChildAmountComponent implements OnInit, OnChanges {
   // }
 
   public sendNotification(): void {
-    console.log('nouveau montant: ', this.amount);
+    // console.log('nouveau montant: ', this.amount);
+  }
+
+  public get checkPerformance() {
+    console.log('View checked: ', this.childName);
+    return true;
   }
 
 }
