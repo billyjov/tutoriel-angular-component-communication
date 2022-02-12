@@ -4,7 +4,8 @@ import { AccountService } from '../account/account.service';
 @Component({
   selector: 'app-house',
   templateUrl: './house.component.html',
-  styleUrls: ['./house.component.css']
+  styleUrls: ['./house.component.css'],
+  providers: [AccountService],
 })
 export class HouseComponent implements OnInit {
 

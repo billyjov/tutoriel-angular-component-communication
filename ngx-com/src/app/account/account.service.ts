@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AccountService {
+@Injectable()
+export class AccountService implements OnDestroy {
 
   public amount: number = 100;
   constructor() { }
+
+
+  ngOnDestroy(): void {
+    console.log('Mon service detruit');
+  }
 }

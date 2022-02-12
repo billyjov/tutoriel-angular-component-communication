@@ -4,7 +4,8 @@ import { AccountService } from '../account/account.service';
 @Component({
   selector: 'app-parent-amount',
   templateUrl: './parent-amount.component.html',
-  styleUrls: ['./parent-amount.component.css']
+  styleUrls: ['./parent-amount.component.css'],
+  providers: [AccountService]
 })
 export class ParentAmountComponent implements OnInit {
 

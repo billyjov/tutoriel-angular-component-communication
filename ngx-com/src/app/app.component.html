@@ -1,7 +1,11 @@
 <div class="container mt-5">
   <h1>Communication</h1>
 
-  <app-house></app-house>
+  <button class="btn btn-success mb-5" (click)="toggle()">Afficher</button>
+
+  <ng-container *ngIf="isShow">
+    <app-house></app-house>
+  </ng-container>
   <app-parent-amount></app-parent-amount>
 
 </div>
