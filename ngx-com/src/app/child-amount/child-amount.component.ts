@@ -9,9 +9,9 @@ import { Component, OnInit, Input, Output, OnChanges, SimpleChanges, EventEmitte
 export class ChildAmountComponent implements OnInit, OnChanges {
 
   @Input()
-  public amount: number = 0;
+  public amount: number | null = 0;
   @Output()
-  public amountChange: EventEmitter<number> = new EventEmitter<number>();
+  public amountChange: EventEmitter<number | null> = new EventEmitter<number | null>();
 
   @Input()
   public isIncreased: boolean = false;
@@ -36,7 +36,7 @@ export class ChildAmountComponent implements OnInit, OnChanges {
   }
 
   public withdraw(): void {
-    this.amount -= 100;
+    this.amount! -= 100;
     this.amountChange.emit(this.amount);
   }
 

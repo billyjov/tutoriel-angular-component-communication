@@ -1,11 +1,11 @@
 <div class="mt-5">
   <h3>Je suis parent</h3>
 
-  <button class="btn btn-primary mb-5 mt-5" (click)="deposit()">Ajouter de
+  <button class="btn btn-primary mb-5 mt-5" (click)="setAmount()">Ajouter de
     l'argent</button>
 </div>
 
 <!-- {{ checkPerformance }} -->
 
-<app-child-amount [(amount)]="amount"
+<app-child-amount [amount]="amount$ | async" (amountChange)="retrieve()"
   [isIncreased]="isIncreased" [childName]="'Fatima'" [favoriteColor]="'red'"></app-child-amount>

@@ -1,2 +1,2 @@
-<app-child-amount [(amount)]="amount" [childName]="'Fatou'"
+<app-child-amount [amount]="amount$ | async" (amountChange)="retrieve()" [childName]="'Fatou'"
   [favoriteColor]="'orange'"></app-child-amount>

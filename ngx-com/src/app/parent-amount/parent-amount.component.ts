@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AccountService } from '../account/account.service';
 
 @Component({
@@ -20,6 +21,18 @@ export class ParentAmountComponent implements OnInit {
     // this.amountTotal += 100;
     // this.isIncreased = true;
     this.amount += 100;
+  }
+
+  public get amount$(): Observable<number | null> {
+    return this.accountService.getAmount();
+  }
+
+  public setAmount(): void {
+    this.accountService.setAmount();
+  }
+
+  public retrieve(): void {
+    this.accountService.retrieve();
   }
 
   public get amount(): number {
