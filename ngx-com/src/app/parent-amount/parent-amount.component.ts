@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AccountService } from '../account/account.service';
 
@@ -12,9 +13,16 @@ export class ParentAmountComponent implements OnInit {
 
   public amountTotal: number = 100;
   public isIncreased: boolean = false;
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  public navigate(): void {
+    this.router.navigate(['/details'], {
+      queryParams: { car: 'BMW', name: 'Amina' },
+      skipLocationChange: true,
+    })
   }
 
   public deposit(): void {

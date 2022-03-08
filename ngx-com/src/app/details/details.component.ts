@@ -14,7 +14,7 @@ export class DetailsComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.activatedRoute.snapshot.paramMap.get('car'))
+    console.log(this.activatedRoute.snapshot.queryParamMap.get('car'))
   }
 
 }
