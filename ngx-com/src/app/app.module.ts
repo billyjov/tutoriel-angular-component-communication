@@ -8,6 +8,8 @@ import { ChildComponentComponent } from './child-component/child-component.compo
 import { ParentAmountComponent } from './parent-amount/parent-amount.component';
 import { ChildAmountComponent } from './child-amount/child-amount.component';
 import { HouseComponent } from './house/house.component';
+import { DetailsComponent } from './details/details.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { HouseComponent } from './house/house.component';
     ChildComponentComponent,
     ParentAmountComponent,
     ChildAmountComponent,
-    HouseComponent
+    HouseComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
