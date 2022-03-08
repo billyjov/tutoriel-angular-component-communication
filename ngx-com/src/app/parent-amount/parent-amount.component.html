@@ -7,7 +7,8 @@
       l'argent
     </button>
 
-    <button class="btn btn-success" routerLink="/details">
+    <button class="btn btn-success"
+      [routerLink]="['/details', { car: 'BMW', gender: 'Women' }]">
       Details
     </button>
   </div>
@@ -16,4 +17,5 @@
 <!-- {{ checkPerformance }} -->
 
 <app-child-amount [amount]="amount$ | async" (amountChange)="retrieve()"
-  [isIncreased]="isIncreased" [childName]="'Fatima'" [favoriteColor]="'red'"></app-child-amount>
+  [isIncreased]="isIncreased" [childName]="'Fatima'" [favoriteColor]="'red'">
+</app-child-amount>
