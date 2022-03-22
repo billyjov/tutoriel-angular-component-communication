@@ -19,6 +19,9 @@ const routes: Route[] = [
         age: 12
       }
     }
+  }, {
+    path: 'details/:id',
+    component: DetailsComponent
   }
 ];
 

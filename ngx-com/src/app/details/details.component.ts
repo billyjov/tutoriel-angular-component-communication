@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class DetailsComponent implements OnInit {
 
   public data$: Observable<Data> = this.activatedRoute.data;
+  public id: number = +this.activatedRoute.snapshot.paramMap.get('id')!;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
